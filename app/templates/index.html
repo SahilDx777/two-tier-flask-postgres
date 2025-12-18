@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Tier Flask App</title>
+</head>
+<body>
+    <h2>Enter Name</h2>
+
+    <form method="POST">
+        <input type="text" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>Stored Names</h3>
+    <ul>
+        {% for user in users %}
+            <li>{{ user[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
