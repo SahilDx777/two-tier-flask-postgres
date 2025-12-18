@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/<your-username>/two-tier-flask-postgres.git'
+                    url: 'https://github.com/SahilDx777/two-tier-flask-postgres.git'
             }
         }
 
