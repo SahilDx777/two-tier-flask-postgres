@@ -44,6 +44,33 @@ def index():
 
     return render_template("index.html", users=users)
 
+
+
+@app.route("/delete/<int:id>")
+def delete(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM users WHERE id=%s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect("/")
+
+@app.route("/edit/<int:id>", methods=["POST"])
+def edit(id):
+    new_name = request.form["name"]
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE users SET name=%s WHERE id=%s",
+        (new_name, id)
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect("/")
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
 
