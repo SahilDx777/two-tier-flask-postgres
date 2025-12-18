@@ -32,6 +32,7 @@ All components run as Docker containers on a single EC2 instance.
 
 ## 🔄 Architecture Flow
 
+```bash
 User Browser
 |
 v
@@ -47,11 +48,13 @@ Docker Compose
 └── PostgreSQL Container (Database)
 |
 └── Docker Volume (Persistent Data)
+```
 
 ---
 
 ## 📦 Project Structure
 
+```bash
 two-tier-flask-postgres/
 ├── app/
 │ ├── app.py
@@ -62,7 +65,7 @@ two-tier-flask-postgres/
 ├── Dockerfile
 ├── Jenkinsfile
 └── README.md
-
+```
 
 ---
 
@@ -95,5 +98,5 @@ On every push to the `main` branch:
 docker-compose up -d --build
 ```
 ### Access the app!
-http://<EC2-PUBLIC-IP>:5000
+http://EC2-PUBLIC-IP:5000
 
